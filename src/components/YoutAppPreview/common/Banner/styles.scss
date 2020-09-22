@@ -1,0 +1,27 @@
+.yout-app-templates-preview {
+    .template-banner {
+        width: 100%;
+        height: 175px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .template-banner-classic {
+        display: block;
+    }
+
+    .template-banner-accent,
+    .template-banner-minimal {
+        display: none;
+    }
+
+    // @media only screen and (max-width: 600px) {
+    //     .template-banner {
+    //         display: none;
+    //     }
+    // }
+}

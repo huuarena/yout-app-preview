@@ -1,0 +1,83 @@
+.yout-app-templates-preview {
+    .template-videos-playlist {
+        background-color: #fff;
+        padding: 20px;
+        position: relative;
+    }
+
+    .template-videos-playlist-horizontal {
+        .video-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .template-videos-playlist-vertical {
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .template-videos-playlist-horizontal {
+            .video-list {
+                .video-list-item {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+        .template-videos-playlist-horizontal {
+            .video-list {
+                .video-list-item {
+                    width: calc((100% - 20px) / 2);
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 901px) {
+        .template-videos-playlist-horizontal {
+            .video-list {
+                .video-list-item {
+                    width: calc((100% - 40px) / 3);
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 980px) {
+        .template-videos-playlist-horizontal {
+            .video-list-preview {
+                .video-list-item {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 981px) and (max-width: 1280px) {
+        .template-videos-playlist-horizontal {
+            .video-list-preview {
+                .video-list-item {
+                    width: calc((100% - 20px) / 2);
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1281px) {
+        .template-videos-playlist-horizontal {
+            .video-list-preview {
+                .video-list-item {
+                    width: calc((100% - 40px) / 3);
+                }
+            }
+        }
+    }
+}
