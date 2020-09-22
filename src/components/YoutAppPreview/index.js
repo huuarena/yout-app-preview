@@ -13,7 +13,8 @@ function YoutAppPreview(props) {
                 return (
                     <YoutubeChannel
                         widget={widget}
-                        handleSelectedVideo={(video) => setVideoSelected(video)}
+                        videoSelected={videoSelected}
+                        onSelectVideo={(video) => setVideoSelected(video)}
                     />
                 );
 
@@ -21,19 +22,24 @@ function YoutAppPreview(props) {
                 return (
                     <YoutubeChannel
                         widget={widget}
-                        handleSelectedVideo={(video) => setVideoSelected(video)}
+                        videoSelected={videoSelected}
+                        onSelectVideo={(video) => setVideoSelected(video)}
                     />
                 );
         }
     };
 
     return (
-        <div className="yout-app-templates-preview">
+        <div className="yout-app-preview">
             {renderComponent()}
 
             {widget.setting.layout.video.mode.selected === 0 &&
                 JSON.stringify(videoSelected) !== '{}' && (
-                    <PlayVideoPopup onClose={() => setVideoSelected({})} />
+                    <PlayVideoPopup
+                        video={videoSelected}
+                        widget={widget}
+                        onClose={() => setVideoSelected({})}
+                    />
                 )}
         </div>
     );

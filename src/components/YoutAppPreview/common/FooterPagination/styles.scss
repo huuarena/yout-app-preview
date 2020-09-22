@@ -1,49 +1,45 @@
-.yout-app-templates-preview {
-    .templates-footer-pagination {
+.yout-app-preview {
+    .yout-app-footer-pagination {
         padding: 20px;
         display: flex;
         justify-content: center;
         align-items: stretch;
 
+        .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                            supported by Chrome, Edge, Opera and Firefox */
+        }
+
         .item {
-            text-align: center;
             width: 30px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 12px;
-            padding: 5px 10px;
+            color: #999999;
             margin: 0 3px;
             border-radius: 2px;
-            color: #aaa;
-            line-height: 1;
-            background: rgba(175, 175, 175, 0.1);
-            opacity: 1;
+            background-color: rgba(175, 175, 175, 0.1);
             -webkit-transition: color 0.3s ease;
             -o-transition: color 0.3s ease;
             transition: color 0.3s ease;
             cursor: pointer;
         }
 
-        .item-selected {
-            background: rgba(175, 175, 175, 0.3);
-        }
-
+        .item-selected,
         .item:hover {
             background: rgba(175, 175, 175, 0.3);
         }
 
-        .previous,
-        .previous:hover {
-            background-image: url('./back.svg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 8px;
-        }
-
-        .next,
-        .next:hover {
-            background-image: url('./next.svg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 8px;
+        .item-icon {
+            width: 10px;
+            height: 10px;
         }
     }
 }

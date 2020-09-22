@@ -1,7 +1,8 @@
-.yout-app-templates-preview {
-    .template-subscribe-button {
+.yout-app-preview {
+    .yout-app-subscribe-button {
         display: flex;
         align-items: stretch;
+        font-size: 13px;
 
         .youtube-logo {
             background-color: #e62117;
@@ -12,13 +13,9 @@
             border-radius: 2px 0 0 2px;
             cursor: pointer;
 
-            .youtube-icon {
+            .icon-youtube {
                 width: 15px;
                 height: 15px;
-                background-image: url('./youtube.svg');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
                 margin-right: 6px;
             }
         }
@@ -33,6 +30,7 @@
             border-bottom: 1px solid #ccc;
             border-radius: 0 2px 2px 0;
             background-color: #fff;
+            color: #737373;
         }
     }
 }

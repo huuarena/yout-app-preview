@@ -8,9 +8,9 @@ function Banner(props) {
     const layoutName = widget.setting.layout.header.layout.data[layoutIndex].toLowerCase();
 
     return (
-        <div className={`template-banner template-banner-${layoutName}`}>
+        <div className={`yout-app-banner yout-app-banner-${layoutName}`}>
             <img
-                alt=""
+                alt="Shopify Yout App"
                 src={widget.youtube_channel.items[0].brandingSettings.image.bannerImageUrl}
             />
         </div>

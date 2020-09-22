@@ -1,5 +1,5 @@
-.yout-app-templates-preview {
-    .template-banner {
+.yout-app-preview {
+    .yout-app-banner {
         width: 100%;
         height: 175px;
 
@@ -10,18 +10,18 @@
         }
     }
 
-    .template-banner-classic {
+    .yout-app-banner-classic {
         display: block;
     }
 
-    .template-banner-accent,
-    .template-banner-minimal {
+    .yout-app-banner-accent,
+    .yout-app-banner-minimal {
         display: none;
     }
 
-    // @media only screen and (max-width: 600px) {
-    //     .template-banner {
-    //         display: none;
-    //     }
-    // }
+    @media only screen and (max-width: 600px) {
+        .yout-app-banner {
+            display: none;
+        }
+    }
 }

@@ -1,5 +1,5 @@
-.yout-app-templates-preview {
-    .template-header {
+.yout-app-preview {
+    .yout-app-header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -13,7 +13,7 @@
             flex-direction: column;
             padding-right: 20px;
 
-            .template-channel-name {
+            .channel-name {
                 font-weight: 500;
                 margin-bottom: 5px;
                 display: -webkit-box !important;
@@ -27,15 +27,15 @@
                 -webkit-line-clamp: 1;
                 -webkit-box-orient: vertical;
                 height: 28px;
-        
+
                 a {
                     font-size: 20px;
                     text-decoration: none;
                     color: #171717;
                 }
             }
-        
-            .template-channel-name:hover {
+
+            .channel-name:hover {
                 a {
                     text-decoration: underline;
                 }
@@ -72,13 +72,9 @@
                 }
             }
         }
-
-        .header-subscribe-button {
-            margin-bottom: 10px;
-        }
     }
 
-    .template-header-accent {
+    .yout-app-header-accent {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -96,7 +92,7 @@
     }
 
     @media only screen and (max-width: 600px) {
-        .template-header {
+        .yout-app-header {
             flex-direction: column;
             align-items: center;
 

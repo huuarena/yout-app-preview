@@ -1,7 +1,11 @@
-// @flow
 import moment from 'moment';
 
-const formatYoutubeVideoDuration = (duration: string, type: string): string => {
+/**
+ *
+ * @param {String} duration
+ * @param {String} type
+ */
+const formatYoutubeVideoDuration = (duration, type) => {
     const timestamp = moment.duration(duration).asMilliseconds();
 
     const hh = Math.floor(timestamp / (60 * 60 * 1000));

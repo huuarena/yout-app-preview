@@ -11,11 +11,12 @@ function Header(props) {
     const layoutName = widget.setting.layout.header.layout.data[layoutIndex].toLowerCase();
 
     return (
-        <div className={`template-header  template-header-${layoutName}`}>
+        <div className={`yout-app-header  yout-app-header-${layoutName}`}>
             {widget.setting.layout.header.elements.logo.show && <Logo widget={widget} />}
+
             <div className="header-information">
                 {widget.setting.layout.header.elements.channel_name.show && (
-                    <div className="template-channel-name">
+                    <div className="channel-name">
                         <a
                             href={widget.youtube_channel_source.url}
                             target="_blank"
@@ -31,7 +32,7 @@ function Header(props) {
                     {widget.setting.layout.header.elements.subscribers_counter.show && (
                         <div>
                             {formatLongNumber(
-                                widget.setting.layout.header.elements.subscribers_counter.value,
+                                widget.youtube_channel.items[0].statistics.subscriberCount,
                             )}{' '}
                             Subscribers
                         </div>
@@ -45,7 +46,7 @@ function Header(props) {
                     {widget.setting.layout.header.elements.videos_counter.show && (
                         <div>
                             {formatLongNumber(
-                                widget.setting.layout.header.elements.videos_counter.value,
+                                widget.youtube_channel.items[0].statistics.videoCount,
                             )}{' '}
                             Videos
                         </div>
@@ -60,9 +61,7 @@ function Header(props) {
 
                     {widget.setting.layout.header.elements.views_counter.show && (
                         <div>
-                            {formatLongNumber(
-                                widget.setting.layout.header.elements.views_counter.value,
-                            )}{' '}
+                            {formatLongNumber(widget.youtube_channel.items[0].statistics.viewCount)}{' '}
                             Views
                         </div>
                     )}
@@ -75,9 +74,10 @@ function Header(props) {
                     </div>
                 )}
             </div>
-            <div className="header-subscribe-button">
-                {widget.setting.layout.header.elements.subcribe_button.show && <SubscribeButton widget={widget} />}
-            </div>
+
+            {widget.setting.layout.header.elements.subcribe_button.show && (
+                <SubscribeButton widget={widget} />
+            )}
         </div>
     );
 }

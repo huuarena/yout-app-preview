@@ -16,22 +16,22 @@ VideosPlaylist.defaultProps = {
 };
 
 function VideosPlaylist(props) {
-    const { playlistVariant, cardVariant, widget } = props;
+    const { playlistVariant, cardVariant, widget, videoSelected, onSelectVideo } = props;
+
     const { youtube_videos } = widget;
 
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(3);
 
     const updateWindowDimensions = () => {
-        // live
         if (window.innerWidth < 600) {
-            setLimit(1);
+            return setLimit(1);
         }
         if (window.innerWidth < 900) {
-            setLimit(2);
+            return setLimit(2);
         }
         if (window.innerWidth >= 900) {
-            setLimit(3);
+            return setLimit(3);
         }
     };
 
@@ -42,16 +42,20 @@ function VideosPlaylist(props) {
     }, []);
 
     return (
-        <div className={`template-videos-playlist template-videos-playlist-${playlistVariant}`}>
-            {/* <div className={`video-list video-list-${app_mode.data[app_mode.selected]}`}> */}
-            <div className={`video-list video-list-live`}>
+        <div className={`yout-app-videos-playlist yout-app-videos-playlist-${playlistVariant}`}>
+            <div className={`video-list`}>
                 {youtube_videos.items.length > 0 &&
                     youtube_videos.items
                         .slice((page - 1) * limit, page * limit)
                         .map((item, index) => (
                             <div key={index} className="video-list-item">
-                                {/* <VideoCard variant={cardVariant} video={item} /> */}
-                                {console.log('item :>> ', item)}
+                                <VideoCard
+                                    variant={cardVariant}
+                                    video={item}
+                                    widget={widget}
+                                    videoSelected={videoSelected}
+                                    onSelectVideo={onSelectVideo}
+                                />
                             </div>
                         ))}
 
@@ -66,6 +70,7 @@ function VideosPlaylist(props) {
                             onClick={() => setPage(page - 1)}
                         />
                     )}
+
                 {widget.setting.layout.slider_settings.elements.show_navigation_arrows.show &&
                     page < parseInt(youtube_videos.items.length / limit) && (
                         <PagiButton

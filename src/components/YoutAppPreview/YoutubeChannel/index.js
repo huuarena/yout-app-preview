@@ -5,9 +5,7 @@ import Header from '../common/Header';
 import VideosPlaylist from '../common/VideosPlaylist';
 
 function YoutubeChannel(props) {
-    const { widget } = props;
-
-    console.log('widget :>> ', widget);
+    const { widget, videoSelected, onSelectVideo } = props;
 
     const layoutIndex = widget.setting.layout.video.layout.selected;
     const layoutName = widget.setting.layout.video.layout.data[layoutIndex].toLowerCase();
@@ -23,6 +21,8 @@ function YoutubeChannel(props) {
                 widget={widget}
                 playlistVariant="horizontal"
                 cardVariant={layoutName !== 'horizontal' ? layoutName : 'classic'}
+                videoSelected={videoSelected}
+                onSelectVideo={onSelectVideo}
             />
         </div>
     );

@@ -1,5 +1,5 @@
-.yout-app-templates-preview {
-    .yout-popup-wrapper {
+.yout-app-preview {
+    .yout-app-popup-wrapper {
         position: fixed;
         top: 0;
         left: 0;
@@ -12,12 +12,13 @@
         justify-content: space-between;
         align-items: stretch;
 
-        .yout-popup-wrapper-padding {
+        .yout-app-popup-wrapper-padding {
             flex: 1;
         }
 
-        .yout-popup-wrapper-body {
+        .yout-app-popup-wrapper-body {
             max-width: 1000px;
+            width: 100%;
 
             .yout-popup-header {
                 display: flex;
@@ -30,10 +31,6 @@
                 .close-icon {
                     width: 20px;
                     height: 20px;
-                    background-image: url('./close.svg');
-                    background-repeat: no-repeat;
-                    background-position: right;
-                    background-size: 20px;
                 }
 
                 .close-icon:active {
@@ -107,22 +104,7 @@
                                 .icon {
                                     width: 12px;
                                     height: 12px;
-                                    background-repeat: no-repeat;
-                                    background-position: center;
-                                    background-size: 12px;
-                                    margin-right: 5px;
-                                }
-
-                                .like-icon {
-                                    background-image: url('./like.svg');
-                                }
-
-                                .dislike-icon {
-                                    background-image: url('./dislike.svg');
-                                }
-
-                                .share-icon {
-                                    background-image: url('./share.svg');
+                                    margin-right: 10px;
                                 }
                             }
                         }
@@ -140,9 +122,24 @@
                             padding-right: 20px;
                             padding-bottom: 20px;
 
-                            .template-video-publish {
+                            .channel-name {
+                                margin-bottom: 10px;
+
+                                a {
+                                    color: #171717;
+                                    text-decoration: none;
+                                    font-weight: 500;
+                                }
+
+                                a:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+
+                            .video-publish {
                                 margin-bottom: 5px;
                                 font-size: 12px;
+                                color: #777777;
                             }
 
                             .channel-description {
@@ -170,11 +167,9 @@
                                 cursor: pointer;
                                 font-size: 13px;
                                 font-weight: 500;
+                                color: #777777;
+                                margin-top: 20px;
                             }
-                        }
-
-                        .channel-info-subscribe-button {
-                            margin-bottom: 20px;
                         }
                     }
                 }
@@ -221,14 +216,10 @@
                                 font-size: 12px;
                                 color: rgba($color: #171717, $alpha: 0.7);
 
-                                .like-icon {
+                                .icon {
                                     width: 12px;
                                     height: 12px;
-                                    background-image: url('./like.svg');
-                                    background-repeat: no-repeat;
-                                    background-position: center;
-                                    background-size: 12px;
-                                    margin-right: 5px;
+                                    margin-right: 10px;
                                 }
                             }
                         }
@@ -239,8 +230,8 @@
     }
 
     @media only screen and (max-width: 600px) {
-        .yout-popup-wrapper {
-            .yout-popup-wrapper-body {
+        .yout-app-popup-wrapper {
+            .yout-app-popup-wrapper-body {
                 .yout-popup-body {
                     .video-info {
                         .channel-info {
@@ -256,8 +247,8 @@
             }
         }
 
-        .yout-popup-wrapper {
-            .yout-popup-wrapper-body {
+        .yout-app-popup-wrapper {
+            .yout-app-popup-wrapper-body {
                 .yout-popup-header {
                     justify-content: center;
                 }

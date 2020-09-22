@@ -1,75 +1,58 @@
-.pagi-button {
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: 0.8;
-    z-index: 10;
-    height: 40px;
-    width: 40px;
-    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    position: absolute;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.yout-app-preview {
+    .yout-app-pagi-button {
+        background-color: #fff;
+        border-radius: 50%;
+        opacity: 0.8;
+        z-index: 10;
+        height: 40px;
+        width: 40px;
+        -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        -webkit-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        position: absolute;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    .icon {
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 12px;
+        .icon {
+            width: 12px;
+            height: 12px;
+        }
     }
 
-    .icon-previous {
-        background-image: url('./back.svg');
+    .yout-app-pagi-button-previous {
+        left: 10px;
+        top: calc(50% - 20px);
+        margin: 0 5px;
     }
 
-    .icon-next {
-        background-image: url('./next.svg');
+    .yout-app-pagi-button-next {
+        right: 10px;
+        top: calc(50% - 20px);
+        margin: 0 5px;
     }
 
-    .icon-down {
-        background-image: url('./down-arrow.svg');
+    .yout-app-pagi-button-down {
+        bottom: 10px;
+        left: calc(50% - 20px);
+        margin: 5px 0;
     }
 
-    .icon-up {
-        background-image: url('./up-arrow.svg');
+    .yout-app-pagi-button-up {
+        top: 10px;
+        left: calc(50% - 20px);
+        margin: 5px 0;
     }
-}
 
-.pagi-button-previous {
-    left: 0px;
-    top: calc(50% - 20px);
-    margin: 0 5px;
-}
+    .yout-app-pagi-button:hover {
+        opacity: 1;
+    }
 
-.pagi-button-next {
-    right: 0px;
-    top: calc(50% - 20px);
-    margin: 0 5px;
-}
-
-.pagi-button-down {
-    bottom: 0px;
-    left: calc(50% - 20px);
-    margin: 5px 0;
-}
-
-.pagi-button-up {
-    top: 0px;
-    left: calc(50% - 20px);
-    margin: 5px 0;
-}
-
-.pagi-button:hover {
-    opacity: 1;
-}
-
-.pagi-button:active {
-    transform: scale(0.9);
-    transition: 0.1s;
+    .yout-app-pagi-button:active {
+        transform: scale(0.9);
+        transition: 0.1s;
+    }
 }
