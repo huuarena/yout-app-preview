@@ -73,7 +73,6 @@ function VideoCard(props) {
                     videoSelected.id === video.id &&
                     widget.setting.layout.video.mode.selected === 1 && (
                         <div className="video-play">
-                            {console.log('play video')}
                             <iframe
                                 title="youtube video"
                                 width="100%"

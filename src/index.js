@@ -2,14 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-import { CONFIG } from './config';
 import YoutAppPreview from './components/YoutAppPreview';
 
-fetch(CONFIG.API_HOST + '/admin/yout-app')
+const API_HOST = 'https://arena-wishlist-test.ngrok.io';
+const STORE_NAME =
+    window.location.host === 'localhost:3000' || window.location.host === 'localhost:9000'
+        ? 'hahalolo.myshopify.com'
+        : window.location.host;
+
+fetch(`${API_HOST}/app/yout-app?store_name=${STORE_NAME}`)
     .then((response) => response.json())
     .then((res) => {
         if (res.success && res.payload.widgets.length) {
             const widgets = res.payload.widgets;
+
+            console.log('widgets :>> ', widgets);
 
             for (let i = 0; i < widgets.length; i++) {
                 const root = document.getElementById(`${widgets[i].id}`);

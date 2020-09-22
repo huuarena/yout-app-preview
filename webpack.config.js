@@ -10,7 +10,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main_[hash].js',
+        filename: 'main-[hash].js',
     },
     module: {
         rules: [
@@ -41,7 +41,7 @@ module.exports = {
     plugins: [
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'main_[hash].css',
+            filename: 'main-[hash].css',
         }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
