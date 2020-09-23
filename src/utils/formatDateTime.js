@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 /**
  *
  * @param {String} datetime
@@ -20,6 +22,10 @@ const formatDateTime = (datetime, type) => {
         case 'MM/DD/YYYY':
             // 02/26/2020
             return `${mmStr}/${ddStr}/${yyyyStr}`;
+
+        case 'Month DD, YYYY':
+            // December 25, 2020
+            return moment(datetime).format('LL');
 
         default:
             // 2020-02-26

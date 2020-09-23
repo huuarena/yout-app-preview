@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import formatDateTime from '../../../../utils/formatDateTime';
 import formatLongNumber from '../../../../utils/formatLongNumber';
 import formatYoutubeVideoDuration from '../../../../utils/formatYoutubeVideoDuration';
@@ -37,17 +36,11 @@ const youtubeIcon = (
     </svg>
 );
 
-VideoCard.propTypes = {
-    variant: PropTypes.oneOf(['classic', 'horizontal', 'cinema']),
-    video: PropTypes.object.isRequired,
-};
-
-VideoCard.defaultProps = {
-    variant: 'classic',
-};
-
 function VideoCard(props) {
-    const { variant, video, widget, videoSelected, onSelectVideo } = props;
+    const { video, widget, videoSelected, onSelectVideo } = props;
+
+    const videoLayoutSelected = widget.setting.layout.video.layout.selected;
+    const variant = widget.setting.layout.video.layout.data[videoLayoutSelected].toLowerCase();
 
     return (
         <div
@@ -58,7 +51,7 @@ function VideoCard(props) {
                     : onSelectVideo(video)
             }
         >
-            <div className="thumbnail">
+            <div id="video-card-thumbnail" className="thumbnail">
                 <img alt="" src={video.snippet.thumbnails.high.url} />
                 {widget.setting.layout.video.elements.play_icon.show && (
                     <div className="play-icon">{youtubeIcon}</div>

@@ -11,7 +11,7 @@ function Header(props) {
     const layoutName = widget.setting.layout.header.layout.data[layoutIndex].toLowerCase();
 
     return (
-        <div className={`yout-app-header  yout-app-header-${layoutName}`}>
+        <div className={`yout-app-preview-header  yout-app-preview-header-${layoutName}`}>
             {widget.setting.layout.header.elements.logo.show && <Logo widget={widget} />}
 
             <div className="header-information">

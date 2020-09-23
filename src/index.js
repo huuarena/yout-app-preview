@@ -6,7 +6,7 @@ import YoutAppPreview from './components/YoutAppPreview';
 
 const API_HOST = 'https://arena-wishlist-test.ngrok.io';
 const STORE_NAME =
-    window.location.host === 'localhost:3000' || window.location.host === 'localhost:9000'
+    window.location.host.indexOf('localhost') >= 0
         ? 'hahalolo.myshopify.com'
         : window.location.host;
 
@@ -16,12 +16,10 @@ fetch(`${API_HOST}/app/yout-app?store_name=${STORE_NAME}`)
         if (res.success && res.payload.widgets.length) {
             const widgets = res.payload.widgets;
 
-            console.log('widgets :>> ', widgets);
-
             for (let i = 0; i < widgets.length; i++) {
                 const root = document.getElementById(`${widgets[i].id}`);
 
-                if (root && JSON.stringify(widgets[i]) !== '{}') {
+                if (root && JSON.stringify(widgets[i]) !== '{}' && widgets[i].enabled) {
                     ReactDOM.render(<YoutAppPreview widget={widgets[i]} />, root);
                 }
             }

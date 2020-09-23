@@ -1,5 +1,5 @@
 .yout-app-preview {
-    .yout-app-header {
+    .yout-app-preview-header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -74,7 +74,7 @@
         }
     }
 
-    .yout-app-header-accent {
+    .yout-app-preview-header-accent {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -92,7 +92,7 @@
     }
 
     @media only screen and (max-width: 600px) {
-        .yout-app-header {
+        .yout-app-preview-header {
             flex-direction: column;
             align-items: center;
 

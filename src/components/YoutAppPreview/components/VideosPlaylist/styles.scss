@@ -1,0 +1,26 @@
+.yout-app-preview {
+    .yout-app-videos-playlist {
+        background-color: #fff;
+        padding: 20px 0;
+        position: relative;
+
+        .video-list {
+            position: relative;
+            padding: 0 10px;
+
+            .video-list-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: stretch;
+                margin-bottom: 20px;
+
+                .video-list-item {
+                    flex: 1;
+                    display: flex;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+}
