@@ -24,13 +24,13 @@
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-                padding: 20px 25px;
+                padding: 16px 28px;
                 cursor: pointer;
                 opacity: 0.8;
 
                 .close-icon {
-                    width: 20px;
-                    height: 20px;
+                    width: 16px;
+                    height: 16px;
                 }
 
                 .close-icon:active {
@@ -161,6 +161,10 @@
                                     -webkit-line-clamp: unset;
                                     height: auto;
                                 }
+
+                                .text-line {
+                                    margin-bottom: 5px;
+                                }
                             }
 
                             .show-more {
@@ -194,20 +198,29 @@
                         }
 
                         .comment-body {
+                            padding-right: 20px;
+
                             .user-name {
                                 display: flex;
-                                align-items: center;
+                                align-items: baseline;
 
-                                .user-name-text {
+                                a {
                                     color: #171717;
                                     font-weight: 500;
                                     margin-right: 10px;
+                                    margin-bottom: 5px;
                                 }
 
                                 .published-at {
                                     font-size: 12px;
                                     color: rgba(17, 17, 17, 0.7);
                                 }
+                            }
+
+                            .comment-text {
+                                color: #171717;
+                                font-size: 13px;
+                                line-height: 1.5;
                             }
 
                             .comment-report {

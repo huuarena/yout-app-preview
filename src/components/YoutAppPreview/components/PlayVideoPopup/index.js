@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import formatDateTime from '../../../../utils/formatDateTime';
 import formatLongNumber from '../../../../utils/formatLongNumber';
 import SubscribeButton from '../SubscribeButton';
 import Logo from '../Logo';
 import './styles.scss';
+import Parser from 'html-react-parser';
 
 const closeIcon = (
     <svg
@@ -154,10 +155,24 @@ PlayVideoPopup.propTypes = {
 };
 
 function PlayVideoPopup(props) {
+    const { video, widget, onClose } = props;
+
     const [showMore, setshowMore] = useState(false);
     const [comments, setComments] = useState({});
 
-    const { video, widget, onClose } = props;
+    useEffect(() => {
+        const getComments = () => {
+            if (widget.youtube_comments.length) {
+                widget.youtube_comments.forEach((el) => {
+                    if (el.videoId === video.id) {
+                        setComments(el);
+                        return;
+                    }
+                });
+            }
+        };
+        getComments();
+    }, [widget, video]);
 
     const renderCommentItem = (item, index) => {
         const comment = item.snippet.topLevelComment.snippet;
@@ -176,13 +191,13 @@ function PlayVideoPopup(props) {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <div className="user-name-text">{comment.authorDisplayName}</div>
+                            {comment.authorDisplayName}
                         </a>
                         <div className="published-at">
                             {formatDateTime(comment.publishedAt, 'MM/DD/YYYY')}
                         </div>
                     </div>
-                    <div className="comment-text">{comment.textDisplay}</div>
+                    <div className="comment-text">{Parser(comment.textDisplay)}</div>
                     {comment.likeCount > 0 && (
                         <div className="comment-report">
                             {likeIcon}
@@ -287,7 +302,9 @@ function PlayVideoPopup(props) {
                                             {widget.youtube_channel.items[0].snippet.description
                                                 .split('\n')
                                                 .map((item, index) => (
-                                                    <div key={index}>{item}</div>
+                                                    <div key={index} className="text-line">
+                                                        {item}
+                                                    </div>
                                                 ))}
                                         </div>
                                         {widget.setting.layout.popup.elements
@@ -308,12 +325,10 @@ function PlayVideoPopup(props) {
                         </div>
                     </div>
 
-                    {/* <div className="yout-popup-video-comments">
-                {JSON.stringify(comments) !== '{}' &&
-                    comments.items.map((item, index) =>
-                        this.renderCommentItem(item, index),
-                    )}
-            </div> */}
+                    <div className="yout-popup-video-comments">
+                        {JSON.stringify(comments) !== '{}' &&
+                            comments.items.map((item, index) => renderCommentItem(item, index))}
+                    </div>
                 </div>
             </div>
             <div className="yout-app-popup-wrapper-padding" onClick={onClose} />

@@ -39,14 +39,17 @@ function VideosPlaylist(props) {
 
                 setPage(1);
 
-                if (elWidth > 1200) {
-                    return setNewColumns(columns <= 4 ? columns : 4);
+                if (elWidth > 1300) {
+                    return setNewColumns(columns > 5 ? 5 : columns);
                 }
-                if (elWidth > 900) {
-                    return setNewColumns(columns <= 3 ? columns : 3);
+                if (elWidth > 1150) {
+                    return setNewColumns(columns > 4 ? 4 : columns);
                 }
-                if (elWidth > 600) {
-                    return setNewColumns(columns <= 2 ? columns : 2);
+                if (elWidth > 800) {
+                    return setNewColumns(columns > 3 ? 3 : columns);
+                }
+                if (elWidth > 550) {
+                    return setNewColumns(columns > 2 ? 2 : columns);
                 }
 
                 return setNewColumns(1);
