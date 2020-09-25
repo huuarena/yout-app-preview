@@ -35,7 +35,7 @@ function SubscribeButton(props) {
     return (
         <div className="yout-app-subscribe-button">
             <a
-                href={widget.youtube_channel_source.url + '?sub_confirmation=1'}
+                href={widget.youtube_channel.youtube_channel_source.url + '?sub_confirmation=1'}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -45,7 +45,9 @@ function SubscribeButton(props) {
                 </div>
             </a>
             <div className="subscribers-counter">
-                {formatLongNumber(widget.youtube_channel.items[0].statistics.subscriberCount)}
+                {formatLongNumber(
+                    widget.youtube_channel.youtube_channel.items[0].statistics.subscriberCount,
+                )}
             </div>
         </div>
     );

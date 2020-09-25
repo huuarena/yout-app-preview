@@ -18,12 +18,12 @@ function Header(props) {
                 {widget.setting.layout.header.elements.channel_name.show && (
                     <div className="channel-name">
                         <a
-                            href={widget.youtube_channel_source.url}
+                            href={widget.youtube_channel.youtube_channel_source.url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {widget.youtube_channel_custom.channel_name ||
-                                widget.youtube_channel.items[0].snippet.title}
+                            {widget.setting.layout.header.channel_name_custom ||
+                                widget.youtube_channel.youtube_channel.items[0].snippet.title}
                         </a>
                     </div>
                 )}
@@ -32,7 +32,8 @@ function Header(props) {
                     {widget.setting.layout.header.elements.subscribers_counter.show && (
                         <div>
                             {formatLongNumber(
-                                widget.youtube_channel.items[0].statistics.subscriberCount,
+                                widget.youtube_channel.youtube_channel.items[0].statistics
+                                    .subscriberCount,
                             )}{' '}
                             Subscribers
                         </div>
@@ -46,7 +47,8 @@ function Header(props) {
                     {widget.setting.layout.header.elements.videos_counter.show && (
                         <div>
                             {formatLongNumber(
-                                widget.youtube_channel.items[0].statistics.videoCount,
+                                widget.youtube_channel.youtube_channel.items[0].statistics
+                                    .videoCount,
                             )}{' '}
                             Videos
                         </div>
@@ -61,7 +63,10 @@ function Header(props) {
 
                     {widget.setting.layout.header.elements.views_counter.show && (
                         <div>
-                            {formatLongNumber(widget.youtube_channel.items[0].statistics.viewCount)}{' '}
+                            {formatLongNumber(
+                                widget.youtube_channel.youtube_channel.items[0].statistics
+                                    .viewCount,
+                            )}{' '}
                             Views
                         </div>
                     )}
@@ -69,8 +74,8 @@ function Header(props) {
 
                 {widget.setting.layout.header.elements.channel_description.show && (
                     <div className="template-channel-description">
-                        {widget.youtube_channel_custom.channel_description ||
-                            widget.youtube_channel.items[0].snippet.description}
+                        {widget.setting.layout.header.channel_description_custom ||
+                            widget.youtube_channel.youtube_channel.items[0].snippet.description}
                     </div>
                 )}
             </div>

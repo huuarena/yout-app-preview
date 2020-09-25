@@ -13,8 +13,10 @@ const STORE_NAME =
 fetch(`${API_HOST}/app/yout-app?store_name=${STORE_NAME}`)
     .then((response) => response.json())
     .then((res) => {
-        if (res.success && res.payload.widgets.length) {
-            const widgets = res.payload.widgets;
+        if (res.success && res.payload.length) {
+            const widgets = res.payload;
+
+            console.log('widgets :>> ', widgets);
 
             for (let i = 0; i < widgets.length; i++) {
                 const root = document.getElementById(`${widgets[i].id}`);

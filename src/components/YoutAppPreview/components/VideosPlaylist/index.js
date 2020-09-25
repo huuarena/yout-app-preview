@@ -24,8 +24,7 @@ const createArrayFromNumber = (number) => {
 
 function VideosPlaylist(props) {
     const { widget, videoSelected, onSelectVideo } = props;
-
-    const { youtube_videos } = widget;
+    const { youtube_videos } = widget.youtube_channel;
     const { columns, rows } = widget.setting.layout.columns_rows;
 
     const [newColumns, setNewColumns] = useState(columns);

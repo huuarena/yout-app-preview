@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import formatDateTime from '../../../../utils/formatDateTime';
 import formatLongNumber from '../../../../utils/formatLongNumber';
@@ -158,21 +158,6 @@ function PlayVideoPopup(props) {
     const { video, widget, onClose } = props;
 
     const [showMore, setshowMore] = useState(false);
-    const [comments, setComments] = useState({});
-
-    useEffect(() => {
-        const getComments = () => {
-            if (widget.youtube_comments.length) {
-                widget.youtube_comments.forEach((el) => {
-                    if (el.videoId === video.id) {
-                        setComments(el);
-                        return;
-                    }
-                });
-            }
-        };
-        getComments();
-    }, [widget, video]);
 
     const renderCommentItem = (item, index) => {
         const comment = item.snippet.topLevelComment.snippet;
@@ -277,12 +262,13 @@ function PlayVideoPopup(props) {
                                 {widget.setting.layout.popup.elements.channel_name.show && (
                                     <div className="channel-name">
                                         <a
-                                            href={widget.youtube_channel_source.url}
+                                            href={widget.youtube_channel.youtube_channel_source.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            {widget.youtube_channel_custom.channel_name ||
-                                                widget.youtube_channel.items[0].snippet.title}
+                                            {widget.setting.layout.header.channel_name_custom ||
+                                                widget.youtube_channel.youtube_channel.items[0]
+                                                    .snippet.title}
                                         </a>
                                     </div>
                                 )}
@@ -299,7 +285,7 @@ function PlayVideoPopup(props) {
                                                 showMore && 'channel-description-content-show-more'
                                             }`}
                                         >
-                                            {widget.youtube_channel.items[0].snippet.description
+                                            {widget.youtube_channel.youtube_channel.items[0].snippet.description
                                                 .split('\n')
                                                 .map((item, index) => (
                                                     <div key={index} className="text-line">
@@ -326,8 +312,11 @@ function PlayVideoPopup(props) {
                     </div>
 
                     <div className="yout-popup-video-comments">
-                        {JSON.stringify(comments) !== '{}' &&
-                            comments.items.map((item, index) => renderCommentItem(item, index))}
+                        {Boolean(video.comments) &&
+                            video.comments.length > 0 &&
+                            video.comments.items.map((item, index) =>
+                                renderCommentItem(item, index),
+                            )}
                     </div>
                 </div>
             </div>

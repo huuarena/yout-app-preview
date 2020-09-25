@@ -11,7 +11,10 @@ function Banner(props) {
         <div className={`yout-app-banner yout-app-banner-${layoutName}`}>
             <img
                 alt="Shopify Yout App"
-                src={widget.youtube_channel.items[0].brandingSettings.image.bannerImageUrl}
+                src={
+                    widget.youtube_channel.youtube_channel.items[0].brandingSettings.image
+                        .bannerImageUrl
+                }
             />
         </div>
     );
